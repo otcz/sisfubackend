@@ -1,11 +1,7 @@
 package cafue.sisfu.controlador;
-import cafue.sisfu.entity.Artilleros;
+import cafue.sisfu.entity.*;
 import cafue.sisfu.dao.ArtilleroDAO;
-import cafue.sisfu.entity.Certificaciones;
-import cafue.sisfu.entity.Cursos;
-import cafue.sisfu.servicios.ArtillerosService;
-import cafue.sisfu.servicios.CertificacionesService;
-import cafue.sisfu.servicios.CursosService;
+import cafue.sisfu.servicios.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +22,17 @@ public class UsuarioController {
     @Autowired
     private CursosService cursosService;
 
+    @Autowired
+    private DespliegueService despliegueService;
+
+    @Autowired
+    private ExperienciaService experienciaService;
+
+    @Autowired
+    private InstructorService instructorService;
+
+    @Autowired
+    private MantenimientosService mantenimientosService;
     @RequestMapping(value = "save/artillero", method = RequestMethod.POST)
     public ResponseEntity<String> saveArtillero(@RequestBody Artilleros artillero) {
         artillerosService.guardarArtillero(artillero);
@@ -43,6 +50,31 @@ public class UsuarioController {
         cursosService.guardarCursos(cursos);
         return new ResponseEntity<>("Operación exitosa", HttpStatus.OK);
     }
+
+    @RequestMapping(value = "save/despliegues", method = RequestMethod.POST)
+    public ResponseEntity<String> saveDespliegues(@RequestBody Despliegues despliegues) {
+        despliegueService.guardarDespliegues(despliegues);
+        return new ResponseEntity<>("Operación exitosa", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "save/experiencia", method = RequestMethod.POST)
+    public ResponseEntity<String> saveExperiencia(@RequestBody Experiencia experiencia) {
+        experienciaService.guardarExperiencia(experiencia);
+        return new ResponseEntity<>("Operación experiencia", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "save/instructor", method = RequestMethod.POST)
+    public ResponseEntity<String> saveInstructor(@RequestBody Instructor instructor) {
+        instructorService.guardarInstructor(instructor);
+        return new ResponseEntity<>("Operación instructor", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "save/mantenimientos", method = RequestMethod.POST)
+    public ResponseEntity<String> saveInstructor(@RequestBody Mantenimientos mantenimientos) {
+        mantenimientosService.guardarCertificaciones(mantenimientos);
+        return new ResponseEntity<>("Operación mantenimientos", HttpStatus.OK);
+    }
+
 
 
     @GetMapping("usuarios/{id}")

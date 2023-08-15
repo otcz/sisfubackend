@@ -1,13 +1,13 @@
 package cafue.sisfu.dao;
 
-import cafue.sisfu.entity.Artilleros;
 import cafue.sisfu.entity.Cursos;
+import cafue.sisfu.entity.Instructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface CursosDAO extends JpaRepository<Cursos, Long> {
-    List<Cursos> findByNombres(String nombres);
+public interface InstructorDAO extends JpaRepository<Instructor, Long> {
+
 
 
 
