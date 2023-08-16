@@ -1,7 +1,7 @@
 package cafue.sisfu.controlador;
-import cafue.sisfu.entity.*;
-import cafue.sisfu.dao.ArtilleroDAO;
-import cafue.sisfu.servicios.*;
+import cafue.sisfu.entity.personal.*;
+import cafue.sisfu.servicios.personal.*;
+import cafue.sisfu.servicios.sistemas.SistemaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +33,9 @@ public class UsuarioController {
 
     @Autowired
     private MantenimientosService mantenimientosService;
+
+    @Autowired
+    private SistemaService sistemaService;
     @RequestMapping(value = "save/artillero", method = RequestMethod.POST)
     public ResponseEntity<String> saveArtillero(@RequestBody Artilleros artillero) {
         artillerosService.guardarArtillero(artillero);
@@ -75,6 +78,11 @@ public class UsuarioController {
         return new ResponseEntity<>("Operación mantenimientos", HttpStatus.OK);
     }
 
+    @RequestMapping(value = "save/sistema", method = RequestMethod.POST)
+    public ResponseEntity<String> saveSistema(@RequestBody Sistema sistema) {
+        sistemaService.guardarSistema(sistema);
+        return new ResponseEntity<>("Operación sistema", HttpStatus.OK);
+    }
 
 
     @GetMapping("usuarios/{id}")

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
   <object-set>
-    <schema path="main">
-      <view name="ARTILLEROS" query=""/>
-    </schema>
+    <schema path="main"/>
   </object-set>
 </data>
