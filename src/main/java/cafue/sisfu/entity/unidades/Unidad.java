@@ -17,42 +17,17 @@ public class Unidad {
     @Id
     @Getter
     @Setter
-    private String nombreUnidad;
+    @Column(name = "nombre_unidad")
+    private String nombre_unidad;
 
     @Getter
     @Setter
+    @Column(name = "ubicacion")
     private String ubicacion;
 
     @Getter
     @Setter
-    private String tipoUnidad;
-
-    @Getter
-    @Setter
-    @Nullable
-    @OneToMany
-    @JoinColumn(name = "id")
-    private List<Artilleros> artilleros;
-
-    @Getter
-    @Setter
-    @Nullable
-    @OneToMany
-    @JoinColumn(name = "nroSerie")
-    private List<Sistema> sistemas;
-
-    @Getter
-    @Setter
-    @Nullable
-    @OneToMany
-    @JoinColumn(name = "idMunicion")
-    private List<Municion> municions;
-
-    @Getter
-    @Setter
-    @Nullable
-    @OneToMany
-    @JoinColumn(name = "idTiro")
-    private List<Tiro> tiros;
+    @Column(name = "tipo_unidad")
+    private String tipo_unidad;
 
 }

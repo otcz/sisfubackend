@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "mantenimiento")
@@ -14,24 +15,24 @@ public class Mantenimiento {
     @Id
     @Getter
     @Setter
-    private Long idMantenimiento;
+    @Column(name = "id_mantenimiento")
+    private Long id_mantenimiento;
 
     @Getter
     @Setter
-    private String unidadRealizaMantenimiento;
+    @Column(name = "unidad_realiza_mantenimiento")
+    private String unidad_realiza_mantenimiento;
+
+    @Getter
+    @Setter
+    @Column(name = "fecha")
+    private Date fecha;
 
     @Getter
     @Setter
     @Nullable
     @ManyToOne
-    @JoinColumn(name = "id")
-    private Artilleros artilleros;
-
-    @Getter
-    @Setter
-    @Nullable
-    @ManyToOne
-    @JoinColumn(name = "nroSerie")
+    @JoinColumn(name = "nro_serie")
     private Sistema sistema;
 
 

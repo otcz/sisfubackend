@@ -12,21 +12,17 @@ public class Cursos {
     @Id
     @Getter
     @Setter
-    private Long idCursos;
+    @Column(name = "id_cursos")
+    private Long id_cursos;
 
     @Getter
     @Setter
+    @Column(name = "nombres")
     private String nombres;
 
-    @Getter
-    @Setter
-    private String year;
 
-    @Getter
-    @Setter
-    @OneToMany()
-    @JoinColumn(name = "id")
-    private List<Artilleros> artilleros;
+
+
 
 
 

@@ -11,27 +11,24 @@ import java.util.List;
 @Table(name = "certificaciones")
 public class Certificaciones {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
-    private Long idCertificaciones;
+    @Column(name = "id_certificaciones")
+    private Long id_certificaciones;
 
     @Getter
     @Setter
+    @Column(name = "nombres")
     private String nombres;
 
     @Getter
     @Setter
-    private String quienCertifica;
+    @Column(name = "quien_certifica")
+    private String quien_certifica;
 
-    @Getter
-    @Setter
-    private String year;
 
-    @Getter
-    @Setter
-    @OneToMany()
-    @JoinColumn(name = "id")
-    private List<Artilleros> artilleros;
+
 
 }
 

@@ -1,5 +1,6 @@
 package cafue.sisfu.servicios.sistemas;
 
+import cafue.sisfu.entity.sistemas.Sistema;
 import cafue.sisfu.repository.sistemas.SistemaRepository;
 import org.springframework.stereotype.Service;
 

@@ -1,5 +1,6 @@
 package cafue.sisfu.entity.municion;
 
+import cafue.sisfu.entity.personal.Artilleros;
 import cafue.sisfu.entity.sistemas.Sistema;
 import cafue.sisfu.entity.tiro.Tiro;
 import cafue.sisfu.entity.unidades.Unidad;
@@ -16,47 +17,36 @@ public class Municion {
     @Id
     @Getter
     @Setter
-    private Long idMunicion;
+    @Column(name = "id_municion")
+    private Long id_municion;
 
     @Getter
     @Setter
+    @Column(name = "lote")
     private String lote;
 
     @Getter
     @Setter
-    private Date fechaCompra;
+    @Column(name = "fecha_compra")
+    private Date fecha_compra;
 
     @Getter
     @Setter
-    private Date fechaVence;
+    @Column(name = "fecha_vence")
+    private Date fecha_vence;
 
     @Getter
     @Setter
+    @Column(name = "ubicacion")
     private String ubicacion;
 
     @Getter
     @Setter
-    private int tipoSistema;
+    @Column(name = "tipo_sistema")
+    private int tipo_sistema;
 
-    @Getter
-    @Setter
-    @Nullable
-    @ManyToOne
-    @JoinColumn(name = "nroSerie")
-    private Sistema sistema;
 
-    @Getter
-    @Setter
-    @Nullable
-    @ManyToOne
-    @JoinColumn(name = "nombreUnidad")
-    private Unidad unidad;
 
-    @Getter
-    @Setter
-    @Nullable
-    @ManyToOne
-    @JoinColumn(name = "idTiro")
-    private Tiro tiro;
+
 
 }

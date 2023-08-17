@@ -13,8 +13,8 @@ public class CertificacionesService {
         this.certificacionesRepository = artilleroRepository;
     }
 
-    public void guardarCertificaciones(Certificaciones artillero) {
-        certificacionesRepository.save(artillero);
+    public void guardarCertificaciones(Certificaciones certificaciones) {
+        certificacionesRepository.save(certificaciones);
     }
 
 

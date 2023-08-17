@@ -17,40 +17,28 @@ public class Tiro {
     @Id
     @Getter
     @Setter
-    private Long idTiro;
+    @Column(name = "id_tiro")
+    private Long id_tiro;
 
     @Getter
     @Setter
+    @Column(name = "ubicacion")
     private String ubicacion;
 
+    @Getter
+    @Setter
+    @Column(name = "distancia")
+    private String distancia;
 
     @Getter
     @Setter
-    @Nullable
-    @ManyToOne
-    @JoinColumn(name = "id")
-    private Artilleros artilleros;
+    @Column(name = "carga")
+    private String carga;
 
     @Getter
     @Setter
-    @Nullable
-    @ManyToOne
-    @JoinColumn(name = "nroSerie")
-    private Sistema sistema;
-
-    @Getter
-    @Setter
-    @Nullable
-    @ManyToOne
-    @JoinColumn(name = "nombreUnidad")
-    private Unidad unidad;
-
-    @Getter
-    @Setter
-    @Nullable
-    @OneToMany
-    @JoinColumn(name = "idMunicion")
-    private List <Municion> municion;
+    @Column(name = "cantidad_granada")
+    private String cantidad_granada;
 
 
 }

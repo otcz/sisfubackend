@@ -1,10 +1,9 @@
 package cafue.sisfu.entity.personal;
 
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "despliegues")
@@ -12,29 +11,35 @@ public class Despliegues {
     @Id
     @Getter
     @Setter
-    private Long idDespliegues;
+    @Column(name = "id_despliegues")
+    private Long id_despliegues;
 
     @Getter
     @Setter
-    private String year;
+    @NotNull
+    @Column(name = "year")
+    private int year;
 
     @Getter
     @Setter
+    @Column(name = "unidad")
     private String unidad;
 
     @Getter
     @Setter
+    @Column(name = "ubicacion")
     private String ubicacion;
 
     @Getter
     @Setter
-    private String sistema;
+    @Column(name = "nro_serie")
+    private String nro_serie;
 
     @Getter
     @Setter
-    @OneToMany()
-    @JoinColumn(name = "id")
-    private List<Artilleros> artilleros;
+    @Column(name = "observaciones")
+    private String observaciones;
+
 
 
 }
