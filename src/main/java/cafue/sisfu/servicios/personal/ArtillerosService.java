@@ -1,6 +1,7 @@
 package cafue.sisfu.servicios.personal;
 
 import cafue.sisfu.entity.personal.Artilleros;
+import cafue.sisfu.entity.sistemas.Sistema;
 import cafue.sisfu.repository.personal.ArtilleroRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,22 +17,21 @@ public class ArtillerosService {
         this.artilleroRepository = artilleroRepository;
     }
 
-    public ResponseEntity<String> guardarArtillero(Artilleros artillero) {
-        if (artilleroRepository.existsById(artillero.getId_artillero())) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
+    public ResponseEntity<String> guardarArtillero(Artilleros artilleros) {
+        try {
+            // Agregar validaciones adicionales aquí
+            if (artilleroRepository.existsByIdArtillero(artilleros.getIdArtillero())) {
+                return new ResponseEntity<>("El artillero ya existe", HttpStatus.BAD_REQUEST);
+            }
 
-
-        } else {
-            artilleroRepository.save(artillero);
-            return ResponseEntity.ok("Operación exitosa: Artillero guardado correctamente.");
+            // Guardar la unidad si pasa las validaciones
+            artilleroRepository.save(artilleros);
+            return new ResponseEntity<>("El sistema guardada exitosamente", HttpStatus.OK);
+        } catch (Exception e) {
+            // Manejo de excepciones
+            return new ResponseEntity<>("Error al guardar Artillero", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-    public Artilleros obtenerArtilleroPorId(Long id) {
-        return artilleroRepository.findById(id).orElse(null);
-    }
-
-    public List<Artilleros> findAll() {
-        return artilleroRepository.findAll();
-    }
 }
+
+

@@ -30,7 +30,6 @@ public class Sistema {
 
     @Getter
     @Setter
-    @Nullable
     @OneToOne
     @JoinColumn(name = "id_artillero")
     private Artilleros artilleros;

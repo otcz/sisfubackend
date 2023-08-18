@@ -1,5 +1,6 @@
 package cafue.sisfu.controlador.sistema;
 
+import cafue.sisfu.entity.personal.Artilleros;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,8 +18,11 @@ public class SistemaDTO {
     @Getter
     @Setter
     @NotNull
-    @NotEmpty
     private int tipo_sistema;
+
+    @Getter
+    @Setter
+    private Long id_artillero;
 
 
 
