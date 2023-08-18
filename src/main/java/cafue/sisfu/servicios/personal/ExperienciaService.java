@@ -1,7 +1,10 @@
 package cafue.sisfu.servicios.personal;
 
+import cafue.sisfu.entity.personal.Certificaciones;
 import cafue.sisfu.entity.personal.Experiencia;
 import cafue.sisfu.repository.personal.ExperienciaRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,13 +17,16 @@ public class ExperienciaService {
         this.experienciaRepository = experienciaRepository;
     }
 
-    public void guardarExperiencia(Experiencia experiencia) {
-        experienciaRepository.save(experiencia);
+    public ResponseEntity<String> guardarCertificaciones(Experiencia experiencia) {
+        if (experienciaRepository.existsById(experiencia.getId_experiencia())) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
+        } else {
+            experienciaRepository.save(experiencia);
+            return ResponseEntity.ok("Operación exitosa: experiencia guardado correctamente.");
+        }
     }
 
-    public Experiencia obtenerArtilleroPorId(Long id) {
-        return experienciaRepository.findById(id).orElse(null);
-    }
+
 
     public List<Experiencia> findAll() {
         return experienciaRepository.findAll();

@@ -18,7 +18,7 @@ public class Unidad {
     @Getter
     @Setter
     @Column(name = "nombre_unidad")
-    private String nombre_unidad;
+    private String nombreUnidad;
 
     @Getter
     @Setter

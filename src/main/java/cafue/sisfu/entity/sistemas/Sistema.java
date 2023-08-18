@@ -21,7 +21,7 @@ public class Sistema {
     @Getter
     @Setter
     @Column(name = "nro_serie")
-    private String nro_serie;
+    private String nroSerie;
 
     @Getter
     @Setter

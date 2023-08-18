@@ -1,7 +1,10 @@
 package cafue.sisfu.servicios.personal;
 
+import cafue.sisfu.entity.personal.Certificaciones;
 import cafue.sisfu.entity.personal.Instructor;
 import cafue.sisfu.repository.personal.InstructorRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,13 +17,16 @@ public class InstructorService {
         this.instructorRepository = instructorRepository;
     }
 
-    public void guardarInstructor(Instructor instructor) {
-        instructorRepository.save(instructor);
+    public ResponseEntity<String> guardarInstructor(Instructor instructor) {
+        if (instructorRepository.existsById(instructor.getId_instructor())) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
+        } else {
+            instructorRepository.save(instructor);
+            return ResponseEntity.ok("Operación exitosa: instructor guardado correctamente.");
+        }
     }
 
-    public Instructor obtenerInstructorPorId(Long id) {
-        return instructorRepository.findById(id).orElse(null);
-    }
+
 
     public List<Instructor> findAll() {
         return instructorRepository.findAll();

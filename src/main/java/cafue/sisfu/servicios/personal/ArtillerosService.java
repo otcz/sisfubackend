@@ -24,7 +24,6 @@ public class ArtillerosService {
         } else {
             artilleroRepository.save(artillero);
             return ResponseEntity.ok("Operación exitosa: Artillero guardado correctamente.");
-
         }
     }
 

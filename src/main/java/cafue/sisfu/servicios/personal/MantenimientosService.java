@@ -1,9 +1,14 @@
 package cafue.sisfu.servicios.personal;
 
 
+import cafue.sisfu.entity.personal.Certificaciones;
 import cafue.sisfu.entity.personal.Mantenimientos;
 import cafue.sisfu.repository.personal.MantenimientosRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class MantenimientosService {
@@ -13,12 +18,18 @@ public class MantenimientosService {
         this.mantenimientosRepository = mantenimientosRepository;
     }
 
-    public void guardarCertificaciones(Mantenimientos mantenimientos) {
-        mantenimientosRepository.save(mantenimientos);
+    public ResponseEntity<String> guardarMantenimientosPersonal(Mantenimientos mantenimientos) {
+        if (mantenimientosRepository.existsById(mantenimientos.getId_mantenimiento_personal())) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
+        } else {
+            mantenimientosRepository.save(mantenimientos);
+            return ResponseEntity.ok("Operación exitosa: mantenimientos guardado correctamente.");
+        }
     }
 
 
-    public Mantenimientos obtenerArtilleroPorId(Long id) {
-        return mantenimientosRepository.findById(id).orElse(null);
+
+    public List<Mantenimientos> findAll() {
+        return mantenimientosRepository.findAll();
     }
 }
