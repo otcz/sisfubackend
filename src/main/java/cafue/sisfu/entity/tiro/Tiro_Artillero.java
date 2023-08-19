@@ -1,5 +1,6 @@
 package cafue.sisfu.entity.tiro;
 
+import cafue.sisfu.entity.personal.Artilleros;
 import cafue.sisfu.entity.sistemas.Sistema;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +15,7 @@ public class Tiro_Artillero {
     @Getter
     @Setter
     @Column(name = "id_tiro_artillero")
-    private Long id_tiro_artillero;
+    private Long idTiroArtillero;
 
     @Getter
     @Setter
@@ -28,7 +29,7 @@ public class Tiro_Artillero {
     @Nullable
     @ManyToOne
     @JoinColumn(name = "id_artillero")
-    private Sistema sistema;
+    private Artilleros artilleros;
 
 
 

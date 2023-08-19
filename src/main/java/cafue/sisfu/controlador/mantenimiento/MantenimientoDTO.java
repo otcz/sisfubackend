@@ -1,21 +1,22 @@
-package cafue.sisfu.entity.mantenimientos;
+package cafue.sisfu.controlador.mantenimiento;
 
-import cafue.sisfu.entity.personal.Artilleros;
 import cafue.sisfu.entity.sistemas.Sistema;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.lang.Nullable;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-@Entity
-@Table(name = "mantenimiento")
-public class Mantenimiento {
-    @Id
+public class MantenimientoDTO {
+
     @Getter
     @Setter
-    @Column(name = "id_mantenimiento")
+    @NotNull
     private Long idMantenimiento;
 
     @Getter
@@ -33,7 +34,5 @@ public class Mantenimiento {
     @Nullable
     @ManyToOne
     @JoinColumn(name = "nro_serie")
-    private Sistema sistema;
-
-
+    private String nroSerie;
 }

@@ -19,7 +19,7 @@ public class TiroSistemasService {
     }
 
     public ResponseEntity<String> guardarTiroSistemas(Tiro_Sistemas tiro_sistemas) {
-        if (tiroSistemasRepository.existsById(tiro_sistemas.getId_tiro_sistemas())) {
+        if (tiroSistemasRepository.existsById(tiro_sistemas.getIdTiroSistemas())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
         } else {
             tiroSistemasRepository.save(tiro_sistemas);

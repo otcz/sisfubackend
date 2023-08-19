@@ -4,6 +4,7 @@ import cafue.sisfu.entity.personal.Artilleros;
 import cafue.sisfu.entity.sistemas.Sistema;
 import cafue.sisfu.entity.tiro.Tiro;
 import cafue.sisfu.entity.unidades.Unidad;
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.lang.Nullable;
@@ -17,8 +18,9 @@ public class Municion {
     @Id
     @Getter
     @Setter
+    @NotNull
     @Column(name = "id_municion")
-    private Long id_municion;
+    private Long idMunicion;
 
     @Getter
     @Setter
@@ -43,7 +45,7 @@ public class Municion {
     @Getter
     @Setter
     @Column(name = "tipo_sistema")
-    private int tipo_sistema;
+    private long tipo_sistema;
 
 
 

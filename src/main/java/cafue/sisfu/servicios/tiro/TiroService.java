@@ -17,7 +17,7 @@ public class TiroService {
     }
 
     public ResponseEntity<String> guardarTiro(Tiro tiro) {
-        if (tiroRepository.existsById(tiro.getId_tiro())) {
+        if (tiroRepository.existsById(tiro.getIdTiro())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
         } else {
             tiroRepository.save(tiro);

@@ -14,7 +14,7 @@ public class Tiro_Sistemas {
     @Getter
     @Setter
     @Column(name = "id_tiro_sistemas")
-    private Long id_tiro_sistemas;
+    private Long idTiroSistemas;
 
 
     @Getter

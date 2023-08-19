@@ -19,7 +19,7 @@ public class MunicionService {
     }
 
     public ResponseEntity<String> guardarMunicion(Municion municion) {
-        if (municionRepository.existsById(municion.getId_municion())) {
+        if (municionRepository.existsById(municion.getIdMunicion())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
 
 

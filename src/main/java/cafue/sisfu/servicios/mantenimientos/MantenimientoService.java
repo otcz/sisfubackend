@@ -21,7 +21,7 @@ public class MantenimientoService {
     }
 
     public ResponseEntity<String> guardarMantenimiento(Mantenimiento mantenimiento) {
-        if (mantenimientoRepository.existsById(mantenimiento.getId_mantenimiento())) {
+        if (mantenimientoRepository.existsById(mantenimiento.getIdMantenimiento())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
 
 

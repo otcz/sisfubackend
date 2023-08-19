@@ -17,14 +17,14 @@ public class Municion_Unidad {
     @Getter
     @Setter
     @Column(name = "id_municion_unidad")
-    private Long id_municion_unidad;
+    private Long idmunicionunidad;
 
 
     @Getter
     @Setter
     @ManyToOne
     @JoinColumn(name = "id_municion")
-    private Municion id_municion;
+    private Municion municion;
 
     @Getter
     @Setter

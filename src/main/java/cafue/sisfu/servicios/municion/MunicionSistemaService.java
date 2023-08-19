@@ -19,8 +19,8 @@ public class MunicionSistemaService {
         this.municionSistemaRepository = municionSistemaRepository;
     }
 
-    public ResponseEntity<String> guardarMantenimiento(Municion_Sistemas municion_sistemas) {
-        if (municionSistemaRepository.existsById(municion_sistemas.getId_municion_sistemas())) {
+    public ResponseEntity<String> guardarMunicionSistema(Municion_Sistemas municion_sistemas) {
+        if (municionSistemaRepository.existsById(municion_sistemas.getIdMunicionSistemas())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
 
 

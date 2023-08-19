@@ -3,6 +3,7 @@ package cafue.sisfu.entity.municion;
 import cafue.sisfu.entity.sistemas.Sistema;
 import cafue.sisfu.entity.tiro.Tiro;
 import cafue.sisfu.entity.unidades.Unidad;
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.lang.Nullable;
@@ -16,15 +17,16 @@ public class Municion_Sistemas {
     @Id
     @Getter
     @Setter
+    @NotNull
     @Column(name = "id_municion_sistemas")
-    private Long id_municion_sistemas;
+    private Long idMunicionSistemas;
 
 
     @Getter
     @Setter
     @ManyToOne
     @JoinColumn(name = "id_municion")
-    private Municion id_municion;
+    private Municion municion;
 
     @Getter
     @Setter

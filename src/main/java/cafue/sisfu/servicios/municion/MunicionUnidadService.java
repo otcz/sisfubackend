@@ -18,8 +18,8 @@ public class MunicionUnidadService {
         this.municionUnidadRepository = municionUnidadRepository;
     }
 
-    public ResponseEntity<String> guardarMunicion(Municion_Unidad municion_unidad) {
-        if (municionUnidadRepository.existsById(municion_unidad.getId_municion_unidad())) {
+    public ResponseEntity<String> guardarMunicionUnidad(Municion_Unidad municion_unidad) {
+        if (municionUnidadRepository.existsById(municion_unidad.getIdmunicionunidad())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
 
 

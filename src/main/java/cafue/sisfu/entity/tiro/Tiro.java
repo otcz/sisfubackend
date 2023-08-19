@@ -18,7 +18,7 @@ public class Tiro {
     @Getter
     @Setter
     @Column(name = "id_tiro")
-    private Long id_tiro;
+    private Long idTiro;
 
     @Getter
     @Setter
@@ -38,7 +38,7 @@ public class Tiro {
     @Getter
     @Setter
     @Column(name = "cantidad_granada")
-    private String cantidad_granada;
+    private long cantidadGranada;
 
 
 }

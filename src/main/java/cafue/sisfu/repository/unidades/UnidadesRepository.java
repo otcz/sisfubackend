@@ -6,4 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UnidadesRepository extends JpaRepository<Unidad, Long> {
     boolean existsByNombreUnidad(String nombreUnidad);
+
+    Unidad findByNombreUnidad(String nroSerie);
 }

@@ -19,7 +19,7 @@ public class TiroArtilleroService {
     }
 
     public ResponseEntity<String> guardarTiroArtillero(Tiro_Artillero tiroArtillero) {
-        if (tiroArtilleroRepository.existsById(tiroArtillero.getId_tiro_artillero())) {
+        if (tiroArtilleroRepository.existsById(tiroArtillero.getIdTiroArtillero())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
         } else {
             tiroArtilleroRepository.save(tiroArtillero);
