@@ -17,12 +17,19 @@ public class DespliegueService {
         this.desplieguesRepository = desplieguesRepository;
     }
 
-    public ResponseEntity<String> guardarCertificaciones(Despliegues despliegues) {
-        if (desplieguesRepository.existsById(despliegues.getId_despliegues())) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
-        } else {
+    public ResponseEntity<String> guardarDespliegues(Despliegues despliegues) {
+        try {
+            // Agregar validaciones adicionales aquí
+            if (desplieguesRepository.existsByIdDespliegues(despliegues.getIdDespliegues())) {
+                return new ResponseEntity<>("El despliegue ya existe", HttpStatus.BAD_REQUEST);
+            }
+
+            // Guardar la unidad si pasa las validaciones
             desplieguesRepository.save(despliegues);
-            return ResponseEntity.ok("Operación exitosa: despliegues guardado correctamente.");
+            return new ResponseEntity<>("El despliegue guardada exitosamente", HttpStatus.OK);
+        } catch (Exception e) {
+            // Manejo de excepciones
+            return new ResponseEntity<>("Error al guardar despliegue", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
