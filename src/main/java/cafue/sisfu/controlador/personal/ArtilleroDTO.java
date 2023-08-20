@@ -13,7 +13,7 @@ public class ArtilleroDTO {
     @Getter
     @Setter
     @NotNull
-    private Long id_artillero;
+    private Long idArtillero;
 
     @Getter
     @Setter

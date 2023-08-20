@@ -26,7 +26,7 @@ public class ArtilleroController {
     public ResponseEntity<String> guardarUnidad(@RequestBody @Validated ArtilleroDTO artilleroDTO) {
         // Convertir UnidadDTO a entidad Unidad
         Artilleros artilleros = new Artilleros();
-        artilleros.setIdArtillero(artilleroDTO.getId_artillero());
+        artilleros.setIdArtillero(artilleroDTO.getIdArtillero());
         artilleros.setNombres(artilleroDTO.getNombres());
 
 

@@ -15,17 +15,17 @@ public class Certificaciones {
     @Getter
     @Setter
     @Column(name = "id_certificaciones")
-    private Long id_certificaciones;
+    private Long idCertificaciones;
 
     @Getter
     @Setter
-    @Column(name = "nombres")
-    private String nombres;
+    @Column(name = "nombre")
+    private String nombre;
 
     @Getter
     @Setter
     @Column(name = "quien_certifica")
-    private String quien_certifica;
+    private String quienCertifica;
 
 
 

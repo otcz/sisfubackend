@@ -12,11 +12,11 @@ import javax.persistence.*;
 @Table(name = "artillero_certificacion")
 public class Artillero_Certificacion {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
-    @NotNull
     @Column(name = "id_artillero_certificacion")
-    private Long id_artillero_certificacion;
+    private Long idArtilleroCertificacion;
 
     @Getter
     @Setter
