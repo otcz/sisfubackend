@@ -19,7 +19,7 @@ public class ArtilleroCursoService {
     }
 
     public ResponseEntity<String> guardarArtilleroCurso(Artillero_Curso artilleroCurso) {
-        if (artilleroCursoRepository.existsById(artilleroCurso.getId_artillero_curso())) {
+        if (artilleroCursoRepository.existsById(artilleroCurso.getIdArtilleroCurso())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
 
 

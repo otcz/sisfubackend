@@ -1,13 +1,8 @@
-package cafue.sisfu.controlador.personal.ArtilleroCertificacion;
+package cafue.sisfu.controlador.personal.artilleroCertificacion;
 
-import cafue.sisfu.entity.personal.Artilleros;
-import cafue.sisfu.entity.personal.Certificaciones;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.lang.Nullable;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 public class ArtilleroCertificacionDTO {

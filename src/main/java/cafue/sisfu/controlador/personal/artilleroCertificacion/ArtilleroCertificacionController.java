@@ -1,4 +1,4 @@
-package cafue.sisfu.controlador.personal.ArtilleroCertificacion;
+package cafue.sisfu.controlador.personal.artilleroCertificacion;
 
 import cafue.sisfu.entity.personal.Artillero_Certificacion;
 import cafue.sisfu.entity.personal.Artilleros;

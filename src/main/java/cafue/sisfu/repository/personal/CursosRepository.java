@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CursosRepository extends JpaRepository<Cursos, Long> {
     boolean existsByIdCursos(Long idCurso);
+
+    Cursos findCursosByIdCursos(Long idCurso);
 }
