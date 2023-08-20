@@ -12,8 +12,9 @@ public class Cursos {
     @Id
     @Getter
     @Setter
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cursos")
-    private Long id_cursos;
+    private Long idCursos;
 
     @Getter
     @Setter

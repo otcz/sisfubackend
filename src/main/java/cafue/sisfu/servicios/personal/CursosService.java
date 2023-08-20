@@ -20,11 +20,18 @@ public class CursosService {
     }
 
     public ResponseEntity<String> guardarCursos(Cursos cursos) {
-        if (cursosRepository.existsById(cursos.getId_cursos())) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
-        } else {
+        try {
+            // Agregar validaciones adicionales aquí
+            if (cursosRepository.existsByIdCursos(cursos.getIdCursos())) {
+                return new ResponseEntity<>("El cursos ya existe", HttpStatus.BAD_REQUEST);
+            }
+
+            // Guardar la unidad si pasa las validaciones
             cursosRepository.save(cursos);
-            return ResponseEntity.ok("Operación exitosa: Cursos guardado correctamente.");
+            return new ResponseEntity<>("El cursos guardada exitosamente", HttpStatus.OK);
+        } catch (Exception e) {
+            // Manejo de excepciones
+            return new ResponseEntity<>("Error al guardar cursos", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
