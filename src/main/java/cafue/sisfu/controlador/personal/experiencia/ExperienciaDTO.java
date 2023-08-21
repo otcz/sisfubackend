@@ -1,61 +1,51 @@
-package cafue.sisfu.entity.personal;
+package cafue.sisfu.controlador.personal.experiencia;
 
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Column;
+import javax.validation.constraints.NotEmpty;
 
-@Entity
-@Table(name = "experiencia")
-public class Experiencia {
+public class ExperienciaDTO {
 
-    @Id
     @Getter
     @Setter
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_experiencia")
     private Long idExperiencia;
 
     @Getter
     @Setter
-    @Column(name = "sistema")
+    @NotNull
     private int sistema;
 
     @Getter
     @Setter
     @NotNull
-    @Column(name = "year")
     private int year;
 
     @Getter
     @Setter
-    @Column(name = "ubicacion")
+    @NotNull
     private String ubicacion;
 
     @Getter
     @Setter
-    @Column(name = "unidad")
+    @NotNull
     private String unidad;
 
     @Getter
     @Setter
-    @Column(name = "carga")
+    @NotNull
     private int carga;
 
     @Getter
     @Setter
-    @Column(name = "distancia")
+    @NotNull
     private double distancia;
 
     @Getter
     @Setter
-    @Column(name = "cantidad_granadas")
+    @NotNull
     private int cantidadGranadas;
-
-
-
-
 
 }

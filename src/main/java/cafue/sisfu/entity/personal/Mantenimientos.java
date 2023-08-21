@@ -13,8 +13,9 @@ public class Mantenimientos {
     @Id
     @Getter
     @Setter
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_mantenimiento_personal")
-    private Long id_mantenimiento_personal;
+    private Long idMantenimientoPersonal;
 
     @Getter
     @Setter
@@ -29,11 +30,11 @@ public class Mantenimientos {
     @Getter
     @Setter
     @Column(name = "sistema")
-    private String sistema;
+    private int sistema;
 
     @Getter
     @Setter
     @Column(name = "tipo_falla")
-    private String tipo_falla;
+    private String tipoFalla;
 
 }

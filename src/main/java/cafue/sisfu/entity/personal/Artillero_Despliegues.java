@@ -12,15 +12,18 @@ public class Artillero_Despliegues {
     @Id
     @Getter
     @Setter
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_artillero_despliegues")
-    private Long id_artillero_despliegues;
+    private Long idArtilleroDespliegues;
 
-
+    @Getter
+    @Setter
     @ManyToOne
     @JoinColumn(name = "id_artillero")
     private Artilleros artillero;
 
+    @Getter
+    @Setter
     @ManyToOne
     @JoinColumn(name = "id_despliegues")
     private Despliegues despliegues;

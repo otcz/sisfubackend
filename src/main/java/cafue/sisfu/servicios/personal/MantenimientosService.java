@@ -4,6 +4,7 @@ package cafue.sisfu.servicios.personal;
 import cafue.sisfu.entity.personal.Certificaciones;
 import cafue.sisfu.entity.personal.Mantenimientos;
 import cafue.sisfu.repository.personal.MantenimientosRepository;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -19,11 +20,11 @@ public class MantenimientosService {
     }
 
     public ResponseEntity<String> guardarMantenimientosPersonal(Mantenimientos mantenimientos) {
-        if (mantenimientosRepository.existsById(mantenimientos.getId_mantenimiento_personal())) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
-        } else {
+        try {
             mantenimientosRepository.save(mantenimientos);
-            return ResponseEntity.ok("Operación exitosa: mantenimientos guardado correctamente.");
+            return ResponseEntity.ok("Operación exitosa: mantenimiento guardado correctamente.");
+        } catch (DataIntegrityViolationException ex) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR: El mantenimiento ya existe.");
         }
     }
 

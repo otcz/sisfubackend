@@ -12,6 +12,7 @@ public class Instructor {
     @Id
     @Getter
     @Setter
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_instructor")
     private Long id_instructor;
 
