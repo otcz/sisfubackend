@@ -4,6 +4,7 @@ import cafue.sisfu.entity.personal.Artillero_Experiencia;
 import cafue.sisfu.entity.personal.Artillero_Instructor;
 import cafue.sisfu.repository.personal.ArtilleroExperienciaRepository;
 import cafue.sisfu.repository.personal.ArtilleroInstructorRepository;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -18,11 +19,11 @@ public class ArtilleroInstructorService {
         this.artilleroInstructorRepository = artilleroInstructorRepository;
     }
     public ResponseEntity<String> guardarArtilleroInstructor(Artillero_Instructor artilleroInstructorInstructor) {
-        if (artilleroInstructorRepository.existsById(artilleroInstructorInstructor.getId_artillero_instructor())) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
-        } else {
+        try {
             artilleroInstructorRepository.save(artilleroInstructorInstructor);
             return ResponseEntity.ok("Operación exitosa: artillero Instructor guardado correctamente.");
+        } catch (DataIntegrityViolationException ex) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR: La Artillero Instructor ya existe.");
         }
     }
 

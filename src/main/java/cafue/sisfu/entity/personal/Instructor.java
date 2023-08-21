@@ -14,7 +14,7 @@ public class Instructor {
     @Setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_instructor")
-    private Long id_instructor;
+    private Long idInstructor;
 
     @Getter
     @Setter

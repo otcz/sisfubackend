@@ -2,6 +2,7 @@ package cafue.sisfu.servicios.personal;
 
 import cafue.sisfu.entity.personal.Artillero_Mantenimiento;
 import cafue.sisfu.repository.personal.ArtilleroMantenimientosRepository;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -16,11 +17,11 @@ public class ArtilleroMantenimientoService {
         this.artilleroMantenimientoRepository = artilleroMantenimientoRepository;
     }
     public ResponseEntity<String> guardarArtilleroMantenimientos(Artillero_Mantenimiento artilleroMantenimiento) {
-        if (artilleroMantenimientoRepository.existsById(artilleroMantenimiento.getId_artillero_mantenimiento())) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
-        } else {
+        try {
             artilleroMantenimientoRepository.save(artilleroMantenimiento);
-            return ResponseEntity.ok("Operación exitosa: artillero Instructor guardado correctamente.");
+            return ResponseEntity.ok("Operación exitosa: artillero Mantenimiento guardado correctamente.");
+        } catch (DataIntegrityViolationException ex) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR: La artillero Mantenimiento ya existe.");
         }
     }
 

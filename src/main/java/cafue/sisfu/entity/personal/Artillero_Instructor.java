@@ -12,9 +12,9 @@ public class Artillero_Instructor {
     @Id
     @Getter
     @Setter
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_artillero_instructor")
-    private Long id_artillero_instructor;
+    private Long idArtilleroInstructor;
 
 
     @Getter
@@ -23,10 +23,14 @@ public class Artillero_Instructor {
     @Column(name = "year")
     private int year;
 
+    @Getter
+    @Setter
     @ManyToOne
     @JoinColumn(name = "id_artillero")
     private Artilleros artillero;
 
+    @Getter
+    @Setter
     @ManyToOne
     @JoinColumn(name = "id_instructor")
     private Instructor instructor;

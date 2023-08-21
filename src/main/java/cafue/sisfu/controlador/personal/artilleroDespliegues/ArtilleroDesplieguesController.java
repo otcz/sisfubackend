@@ -1,9 +1,8 @@
-package cafue.sisfu.controlador.personal.artilleriaDespliegues;
+package cafue.sisfu.controlador.personal.artilleroDespliegues;
 
 import cafue.sisfu.entity.personal.Artillero_Despliegues;
 import cafue.sisfu.entity.personal.Artilleros;
 import cafue.sisfu.entity.personal.Despliegues;
-import cafue.sisfu.repository.personal.ArtilleroDesplieguesRepository;
 import cafue.sisfu.repository.personal.ArtilleroRepository;
 import cafue.sisfu.repository.personal.DesplieguesRepository;
 import cafue.sisfu.servicios.personal.ArtilleroDespliegueService;
