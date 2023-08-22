@@ -1,7 +1,6 @@
 package cafue.sisfu.controlador.personal.artilleroInstructor;
 
 import com.sun.istack.NotNull;
-import jdk.internal.net.http.common.Log;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -31,6 +31,11 @@ public class AccountService {
             return new ResponseEntity<>("Error al guardar el User", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+
+    public Account obtenerCuentaPorUser(String user) {
+        return accountRepository.findByUser(user);
+    }
 }
 
 
