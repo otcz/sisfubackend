@@ -19,6 +19,7 @@ public class Municion {
     @Getter
     @Setter
     @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_municion")
     private Long idMunicion;
 
@@ -29,13 +30,18 @@ public class Municion {
 
     @Getter
     @Setter
+    @Column(name = "cantidad")
+    private int cantidad;
+
+    @Getter
+    @Setter
     @Column(name = "fecha_compra")
-    private Date fecha_compra;
+    private String fecha_compra;
 
     @Getter
     @Setter
     @Column(name = "fecha_vence")
-    private Date fecha_vence;
+    private String fecha_vence;
 
     @Getter
     @Setter

@@ -25,14 +25,32 @@ public class Sistema {
 
     @Getter
     @Setter
+    @Column(name = "ubicacion")
+    private String ubicacion;
+
+    @Getter
+    @Setter
+    @Column(name = "estado_sistema")
+    private int estadoSistema;
+
+    @Getter
+    @Setter
     @Column(name = "tipo_sistema")
-    private int tipo_sistema;
+    private int tipoSistema;
 
     @Getter
     @Setter
     @OneToOne
     @JoinColumn(name = "id_artillero")
     private Artilleros artilleros;
+
+    @Getter
+    @Setter
+    @ManyToOne
+    @JoinColumn(name = "nombre_unidad")
+    private Unidad nombreUnidad;
+
+
 
 
 

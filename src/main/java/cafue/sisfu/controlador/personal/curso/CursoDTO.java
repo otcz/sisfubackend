@@ -20,5 +20,14 @@ public class CursoDTO {
     private String nombres;
 
 
+    @Getter
+    @Setter
+    @NotNull
+    private int valor;
+
+    @Getter
+    @Setter
+    private double costo;
+
 
 }

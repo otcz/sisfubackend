@@ -20,7 +20,7 @@ public class AccountService {
         try {
             // Agregar validaciones adicionales aquí
             if (accountRepository.existsByUser(account.getUser())) {
-                return new ResponseEntity<>("User ya exite", HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>("User ya existe", HttpStatus.BAD_REQUEST);
             }
 
             // Guardar la unidad si pasa las validaciones

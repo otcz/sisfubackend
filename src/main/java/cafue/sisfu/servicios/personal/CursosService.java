@@ -4,6 +4,7 @@ import cafue.sisfu.entity.personal.Certificaciones;
 import cafue.sisfu.entity.personal.Cursos;
 import cafue.sisfu.repository.personal.CertificacionesRepository;
 import cafue.sisfu.repository.personal.CursosRepository;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -21,17 +22,10 @@ public class CursosService {
 
     public ResponseEntity<String> guardarCursos(Cursos cursos) {
         try {
-            // Agregar validaciones adicionales aquí
-            if (cursosRepository.existsByIdCursos(cursos.getIdCursos())) {
-                return new ResponseEntity<>("El cursos ya existe", HttpStatus.BAD_REQUEST);
-            }
-
-            // Guardar la unidad si pasa las validaciones
             cursosRepository.save(cursos);
-            return new ResponseEntity<>("El cursos guardada exitosamente", HttpStatus.OK);
-        } catch (Exception e) {
-            // Manejo de excepciones
-            return new ResponseEntity<>("Error al guardar cursos", HttpStatus.INTERNAL_SERVER_ERROR);
+            return ResponseEntity.ok("Operación exitosa: cursos guardado correctamente.");
+        } catch (DataIntegrityViolationException ex) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR: El cursos ya existe.");
         }
     }
 

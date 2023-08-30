@@ -18,6 +18,7 @@ public class Tiro {
     @Getter
     @Setter
     @Column(name = "id_tiro")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idTiro;
 
     @Getter

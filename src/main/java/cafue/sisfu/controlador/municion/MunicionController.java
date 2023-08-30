@@ -1,17 +1,14 @@
 package cafue.sisfu.controlador.municion;
 
 import cafue.sisfu.entity.municion.Municion;
-import cafue.sisfu.entity.personal.Artilleros;
-import cafue.sisfu.entity.sistemas.Sistema;
 import cafue.sisfu.servicios.municion.MunicionService;
-import cafue.sisfu.servicios.sistemas.SistemaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/municion")
 public class MunicionController {
@@ -28,12 +25,12 @@ public class MunicionController {
     public ResponseEntity<String> guardarMunicion(@RequestBody @Validated MunicionDTO municionDTO) {
         // Convertir UnidadDTO a entidad Unidad
         Municion municion = new Municion();
-        municion.setIdMunicion(municionDTO.getIdMunicion());
         municion.setLote(municionDTO.getLote());
         municion.setFecha_vence(municionDTO.getFechaVence());
         municion.setFecha_compra(municionDTO.getFechaCompra());
         municion.setUbicacion(municionDTO.getUbicacion());
         municion.setTipo_sistema(municionDTO.getTipoSistema());
+        municion.setCantidad(municionDTO.getCantidad());
 
         municion.setTipo_sistema(municionDTO.getTipoSistema());
 
@@ -41,5 +38,20 @@ public class MunicionController {
         return municionService.guardarMunicion(municion);
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<Municion>> getMunicion() {
+        List<Municion> municions = municionService.all();
+        return ResponseEntity.ok(municions);
+    }
+    @GetMapping("/cout")
+    public ResponseEntity<Integer> getMunicionSize() {
+        int count = municionService.cout();
+        return ResponseEntity.ok(count);
+    }
 
+    @GetMapping("/suma")
+    public ResponseEntity<Long> sumCantidadPorTipoSistema(@RequestParam Long tipoSistema) {
+        Long sumaCantidad = municionService.sumCantidadPorTipoSistema(tipoSistema);
+        return ResponseEntity.ok(sumaCantidad);
+    }
 }

@@ -29,6 +29,12 @@ public class Account {
     @Column(name = "password")
     private String password;
 
+    @Getter
+    @Setter
+    @NotNull
+    @Column(name = "rol")
+    private String rol;
+
 
 
 }

@@ -1,6 +1,9 @@
 package cafue.sisfu.servicios.sistemas;
 
+import cafue.sisfu.entity.personal.Artilleros;
 import cafue.sisfu.entity.sistemas.Sistema;
+import cafue.sisfu.entity.unidades.Unidad;
+import cafue.sisfu.repository.personal.ArtilleroRepository;
 import cafue.sisfu.repository.sistemas.SistemaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +14,11 @@ import java.util.List;
 public class SistemaService {
     private final SistemaRepository sistemaRepository;
 
-    public SistemaService(SistemaRepository sistemaRepository) {
+    private final ArtilleroRepository artilleroRepository;
+
+    public SistemaService(SistemaRepository sistemaRepository, ArtilleroRepository artilleroRepository) {
         this.sistemaRepository = sistemaRepository;
+        this.artilleroRepository = artilleroRepository;
     }
 
     public ResponseEntity<String> sistemaUnidades(Sistema sistema) {
@@ -30,6 +36,12 @@ public class SistemaService {
             return new ResponseEntity<>("Error al guardar el Sistema", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    public List<Sistema> getSistemasPorUnidad(Unidad unidad,int tipoSistema) {
+        return sistemaRepository.findByNombreUnidadAndTipoSistema(unidad,tipoSistema);
+    }
+
+
 }
 
 

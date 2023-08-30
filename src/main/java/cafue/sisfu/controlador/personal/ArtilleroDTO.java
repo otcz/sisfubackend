@@ -15,10 +15,25 @@ public class ArtilleroDTO {
     @NotNull
     private Long idArtillero;
 
+
+
     @Getter
     @Setter
-    @NotNull
-    @NotEmpty
+    @NotEmpty(message = "El campo 'nombres' no debe estar vacío")
     private String nombres;
+
+
+    @Getter
+    @Setter
+    private String valor;
+
+    @Getter
+    @Setter
+    private String docIdentidad;
+
+    @Getter
+    @Setter
+    @NotEmpty(message = "El campo 'nombreUnidad' no debe estar vacío")
+    private String nombreUnidad;
 
 }

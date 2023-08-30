@@ -26,6 +26,12 @@ public class AccountDTO {
     @NotEmpty
     private String password;
 
+    @Getter
+    @Setter
+    @NotNull
+    @NotEmpty
+    private String rol;
+
 
 
 }

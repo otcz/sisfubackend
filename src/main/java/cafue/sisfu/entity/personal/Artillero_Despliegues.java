@@ -27,4 +27,6 @@ public class Artillero_Despliegues {
     @ManyToOne
     @JoinColumn(name = "id_despliegues")
     private Despliegues despliegues;
+
+
 }

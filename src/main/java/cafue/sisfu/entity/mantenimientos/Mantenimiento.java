@@ -15,6 +15,7 @@ public class Mantenimiento {
     @Id
     @Getter
     @Setter
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_mantenimiento")
     private Long idMantenimiento;
 

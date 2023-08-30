@@ -13,6 +13,7 @@ public class Tiro_Sistemas {
     @Id
     @Getter
     @Setter
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_tiro_sistemas")
     private Long idTiroSistemas;
 

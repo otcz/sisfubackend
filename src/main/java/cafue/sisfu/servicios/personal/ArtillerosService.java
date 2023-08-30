@@ -2,6 +2,7 @@ package cafue.sisfu.servicios.personal;
 
 import cafue.sisfu.entity.personal.Artilleros;
 import cafue.sisfu.entity.sistemas.Sistema;
+import cafue.sisfu.entity.unidades.Unidad;
 import cafue.sisfu.repository.personal.ArtilleroRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +33,18 @@ public class ArtillerosService {
             return new ResponseEntity<>("Error al guardar Artillero", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    public List<Artilleros> getArtillerosPorUnidad(Unidad unidad) {
+        return artilleroRepository.findByUnidad(unidad);
+    }
+
+    public int cout() {
+        return artilleroRepository.countAllBy();
+    }
+    public List<Artilleros> all() {
+        return artilleroRepository.getArtillerosBy();
+    }
+
 }
 
 

@@ -22,8 +22,15 @@ public class Cursos {
     private String nombres;
 
 
+    @Getter
+    @Setter
+    @Column(name = "valor_curso")
+    private int valorCurso;
 
-
+    @Getter
+    @Setter
+    @Column(name = "costo")
+    private double costo;
 
 
 

@@ -4,6 +4,8 @@ import cafue.sisfu.entity.personal.Artillero_Certificacion;
 import cafue.sisfu.entity.personal.Artillero_Curso;
 import cafue.sisfu.repository.personal.ArtilleroCertificacionRepository;
 import cafue.sisfu.repository.personal.ArtilleroCursoRepository;
+import cafue.sisfu.repository.personal.CursosRepository;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -14,18 +16,17 @@ import java.util.List;
 public class ArtilleroCursoService {
     private final ArtilleroCursoRepository artilleroCursoRepository;
 
+
     public ArtilleroCursoService(ArtilleroCursoRepository artilleroCursoRepository) {
         this.artilleroCursoRepository = artilleroCursoRepository;
     }
 
     public ResponseEntity<String> guardarArtilleroCurso(Artillero_Curso artilleroCurso) {
-        if (artilleroCursoRepository.existsById(artilleroCurso.getIdArtilleroCurso())) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
-
-
-        } else {
+        try {
             artilleroCursoRepository.save(artilleroCurso);
-            return ResponseEntity.ok("Operación exitosa: artillero Curso guardado correctamente.");
+            return ResponseEntity.ok("Operación exitosa: artilleroCurso guardado correctamente.");
+        } catch (DataIntegrityViolationException ex) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR: El artilleroCurso ya existe.");
         }
     }
 

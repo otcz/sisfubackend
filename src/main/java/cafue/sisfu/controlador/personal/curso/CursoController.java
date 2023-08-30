@@ -1,12 +1,7 @@
 package cafue.sisfu.controlador.personal.curso;
 
-import cafue.sisfu.controlador.personal.artilleroCurso.ArtilleroCursoDTO;
-import cafue.sisfu.entity.personal.Artillero_Curso;
-import cafue.sisfu.entity.personal.Artilleros;
 import cafue.sisfu.entity.personal.Cursos;
-import cafue.sisfu.repository.personal.ArtilleroRepository;
-import cafue.sisfu.repository.personal.CursosRepository;
-import cafue.sisfu.servicios.personal.ArtilleroCursoService;
+import cafue.sisfu.servicios.personal.CursosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -19,33 +14,26 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/cursos/artilleros")
 public class CursoController {
 
-    private final ArtilleroCursoService artilleroCursoService;
+    private final CursosService cursosRepository;
 
-    private final ArtilleroRepository artilleroRepository;
 
-    private final CursosRepository cursosRepository;
 
     @Autowired
-    public CursoController(ArtilleroCursoService artilleroCursoService, ArtilleroRepository artilleroRepository, CursosRepository cursosRepository) {
-        this.artilleroCursoService = artilleroCursoService;
-        this.artilleroRepository = artilleroRepository;
+    public CursoController(CursosService cursosRepository) {
+
         this.cursosRepository = cursosRepository;
     }
 
     @PostMapping("/guardar")
-    public ResponseEntity<String> guardarUnidad(@RequestBody @Validated ArtilleroCursoDTO artilleroCursoDTO) {
+    public ResponseEntity<String> guardarUnidad(@RequestBody @Validated CursoDTO cursoDTO) {
         // Convertir UnidadDTO a entidad Unidad
-        Artillero_Curso artilleroCurso = new Artillero_Curso();
-        artilleroCurso.setIdArtilleroCurso(artilleroCursoDTO.getIdCursos());
-        artilleroCurso.setYear(artilleroCursoDTO.getYear());
+        Cursos cursos = new Cursos();
+        cursos.setNombres(cursoDTO.getNombres());
+        cursos.setValorCurso(cursoDTO.getValor());
+        cursos.setCosto(cursoDTO.getCosto());
 
-        Artilleros artilleros = artilleroRepository.findArtillerosByIdArtillero(artilleroCursoDTO.getIdArtillero());
-        Cursos cursos = cursosRepository.findCursosByIdCursos(artilleroCursoDTO.getIdCursos());
-
-        artilleroCurso.setArtillero(artilleros);
-        artilleroCurso.setCursos(cursos);
         // Agregar validaciones adicionales y manejo de excepciones si es necesario
-        return artilleroCursoService.guardarArtilleroCurso(artilleroCurso);
+        return cursosRepository.guardarCursos(cursos);
     }
 
 

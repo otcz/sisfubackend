@@ -18,6 +18,7 @@ public class Municion_Sistemas {
     @Getter
     @Setter
     @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_municion_sistemas")
     private Long idMunicionSistemas;
 

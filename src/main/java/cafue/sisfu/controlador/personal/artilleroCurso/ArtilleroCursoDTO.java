@@ -24,12 +24,12 @@ public class ArtilleroCursoDTO {
     @Getter
     @Setter
     @NotNull
-    private Long idArtillero;
+    private Long id_artillero;
 
     @Getter
     @Setter
     @NotNull
-    private Long idCursos;
+    private Long id_cursos;
 
 
 

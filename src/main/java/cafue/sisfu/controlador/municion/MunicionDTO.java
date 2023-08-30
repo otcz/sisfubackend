@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -13,7 +15,6 @@ public class MunicionDTO {
 
     @Getter
     @Setter
-    @NotNull
     private Long idMunicion;
 
     @Getter
@@ -24,12 +25,17 @@ public class MunicionDTO {
     @Getter
     @Setter
     @NotNull
-    private Date fechaCompra;
+    private int cantidad;
 
     @Getter
     @Setter
     @NotNull
-    private Date fechaVence;
+    private String fechaCompra;
+
+    @Getter
+    @Setter
+    @NotNull
+    private String fechaVence;
 
     @Getter
     @Setter

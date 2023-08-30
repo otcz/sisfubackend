@@ -1,13 +1,11 @@
 package cafue.sisfu.servicios.municion;
 
-import cafue.sisfu.entity.mantenimientos.Mantenimiento;
 import cafue.sisfu.entity.municion.Municion;
-import cafue.sisfu.repository.mantenimiento.MantenimientoRepository;
 import cafue.sisfu.repository.municion.MunicionRepository;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -19,13 +17,11 @@ public class MunicionService {
     }
 
     public ResponseEntity<String> guardarMunicion(Municion municion) {
-        if (municionRepository.existsById(municion.getIdMunicion())) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
-
-
-        } else {
+        try {
             municionRepository.save(municion);
-            return ResponseEntity.ok("Operación exitosa: Artillero guardado correctamente.");
+            return ResponseEntity.ok("Operación exitosa: certificaciones guardado correctamente.");
+        } catch (DataIntegrityViolationException ex) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR: La certificación ya existe.");
         }
     }
 
@@ -35,5 +31,17 @@ public class MunicionService {
 
     public List<Municion> findAll() {
         return municionRepository.findAll();
+    }
+
+    public List<Municion> all() {
+        return municionRepository.getMunicionBy();
+    }
+
+    public int cout() {
+        return municionRepository.countAllBy();
+    }
+
+    public Long sumCantidadPorTipoSistema(Long tipoSistema) {
+        return municionRepository.sumCantidadByTipoSistema(tipoSistema);
     }
 }

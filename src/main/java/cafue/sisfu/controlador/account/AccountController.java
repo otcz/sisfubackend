@@ -26,6 +26,7 @@ public class AccountController {
         account.setPassword(unidadDTO.getPassword());
         account.setUser(unidadDTO.getUser());
         account.setId(unidadDTO.getId());
+        account.setRol(unidadDTO.getRol());
 
 
         // Agregar validaciones adicionales y manejo de excepciones si es necesario
@@ -40,6 +41,7 @@ public class AccountController {
             accountDTO.setId(account.getId());
             accountDTO.setUser(account.getUser());
             accountDTO.setPassword(account.getPassword());
+            accountDTO.setRol(account.getRol());
             // Agregar otras propiedades de DTO si es necesario
 
             return ResponseEntity.ok(accountDTO);
