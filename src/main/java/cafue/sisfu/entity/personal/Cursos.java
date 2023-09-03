@@ -33,7 +33,10 @@ public class Cursos {
     private double costo;
 
 
-
+    @Getter
+    @Setter
+    @Column(name = "sigla")
+    private String sigla;
 
 
 

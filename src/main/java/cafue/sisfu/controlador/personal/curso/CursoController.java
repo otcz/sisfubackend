@@ -30,6 +30,7 @@ public class CursoController {
         Cursos cursos = new Cursos();
         cursos.setNombres(cursoDTO.getNombres());
         cursos.setValorCurso(cursoDTO.getValor());
+        cursos.setSigla(cursoDTO.getSigla());
         cursos.setCosto(cursoDTO.getCosto());
 
         // Agregar validaciones adicionales y manejo de excepciones si es necesario

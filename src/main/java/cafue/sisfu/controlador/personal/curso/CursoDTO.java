@@ -29,5 +29,9 @@ public class CursoDTO {
     @Setter
     private double costo;
 
+    @Getter
+    @Setter
+    private String sigla;
+
 
 }
