@@ -27,9 +27,6 @@ public class ArtilleroDTO {
     @Setter
     private String valor;
 
-    @Getter
-    @Setter
-    private String docIdentidad;
 
     @Getter
     @Setter

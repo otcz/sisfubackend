@@ -39,8 +39,6 @@ public class ArtilleroCursoController {
         Artillero_Curso artilleroCurso = new Artillero_Curso();
         artilleroCurso.setYear(artilleroCursoDTO.getYear());
         Artilleros artilleros = artilleroRepository.findArtillerosByIdArtillero(artilleroCursoDTO.getId_artillero());
-
-        System.out.println(artilleros.getNombres());
         artilleroCurso.setArtillero(artilleroRepository.findArtillerosByIdArtillero(artilleroCursoDTO.getId_artillero()));
         artilleroCurso.setCursos(cursosRepository.findCursosByIdCursos(artilleroCursoDTO.getId_cursos()));
 
