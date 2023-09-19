@@ -1,9 +1,8 @@
 package cafue.sisfu.servicios.personal;
 
 
-import cafue.sisfu.entity.personal.Certificaciones;
-import cafue.sisfu.entity.personal.Mantenimientos;
-import cafue.sisfu.repository.personal.MantenimientosRepository;
+import cafue.sisfu.entity.personal.MantenimientoPer;
+import cafue.sisfu.repository.personal.MantenimientosPerRepository;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,14 +11,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MantenimientosService {
-    private final MantenimientosRepository mantenimientosRepository;
+public class MantenimientoPerService {
+    private final MantenimientosPerRepository mantenimientosRepository;
 
-    public MantenimientosService(MantenimientosRepository mantenimientosRepository) {
+    public MantenimientoPerService(MantenimientosPerRepository mantenimientosRepository) {
         this.mantenimientosRepository = mantenimientosRepository;
     }
 
-    public ResponseEntity<String> guardarMantenimientosPersonal(Mantenimientos mantenimientos) {
+    public ResponseEntity<String> guardarMantenimientosPersonal(MantenimientoPer mantenimientos) {
         try {
             mantenimientosRepository.save(mantenimientos);
             return ResponseEntity.ok("Operación exitosa: mantenimiento guardado correctamente.");
@@ -30,7 +29,7 @@ public class MantenimientosService {
 
 
 
-    public List<Mantenimientos> findAll() {
+    public List<MantenimientoPer> findAll() {
         return mantenimientosRepository.findAll();
     }
 }

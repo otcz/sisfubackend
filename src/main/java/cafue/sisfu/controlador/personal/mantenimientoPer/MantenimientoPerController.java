@@ -1,7 +1,7 @@
-package cafue.sisfu.controlador.personal.mantenimiento;
+package cafue.sisfu.controlador.personal.mantenimientoPer;
 
-import cafue.sisfu.entity.personal.Mantenimientos;
-import cafue.sisfu.servicios.personal.MantenimientosService;
+import cafue.sisfu.entity.personal.MantenimientoPer;
+import cafue.sisfu.servicios.personal.MantenimientoPerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/mantenimiento/artillero")
-public class MantenimientoArtilleroController {
+public class MantenimientoPerController {
 
-    private final MantenimientosService mantenimientosService;
+    private final MantenimientoPerService mantenimientosService;
 
 
     @Autowired
-    public MantenimientoArtilleroController(MantenimientosService mantenimientosService) {
+    public MantenimientoPerController(MantenimientoPerService mantenimientosService) {
         this.mantenimientosService = mantenimientosService;
     }
 
     @PostMapping("/guardar")
     public ResponseEntity<String> guardarUnidad(@RequestBody @Validated MantenimientoDTO mantenimientoDTO) {
         // Convertir UnidadDTO a entidad Unidad
-        Mantenimientos mantenimientos = new Mantenimientos();
+        MantenimientoPer mantenimientos = new MantenimientoPer();
         mantenimientos.setIdMantenimientoPersonal(mantenimientoDTO.getIdMantenimientoPersonal());
         mantenimientos.setUnidad(mantenimientoDTO.getUnidad());
         mantenimientos.setFecha(mantenimientoDTO.getFecha());

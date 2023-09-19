@@ -33,5 +33,5 @@ public class Artillero_Mantenimiento {
     @Setter
     @ManyToOne
     @JoinColumn(name = "id_mantenimientos_persona")
-    private Mantenimientos mantenimientos;
+    private MantenimientoPer mantenimientos;
 }

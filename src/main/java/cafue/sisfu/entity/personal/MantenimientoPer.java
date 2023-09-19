@@ -5,11 +5,10 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "mantenimientos_personal")
-public class Mantenimientos {
+public class MantenimientoPer {
     @Id
     @Getter
     @Setter
@@ -20,7 +19,12 @@ public class Mantenimientos {
     @Getter
     @Setter
     @Column(name = "fecha")
-    private Date fecha;
+    private String fecha;
+
+    @Getter
+    @Setter
+    @Column(name = "tipo_falla")
+    private String tipoFalla;
 
     @Getter
     @Setter
@@ -32,9 +36,6 @@ public class Mantenimientos {
     @Column(name = "sistema")
     private int sistema;
 
-    @Getter
-    @Setter
-    @Column(name = "tipo_falla")
-    private String tipoFalla;
+
 
 }

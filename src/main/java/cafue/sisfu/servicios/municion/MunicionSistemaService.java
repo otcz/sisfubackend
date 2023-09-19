@@ -1,9 +1,6 @@
 package cafue.sisfu.servicios.municion;
 
-import cafue.sisfu.entity.mantenimientos.Mantenimiento;
-import cafue.sisfu.entity.municion.Municion;
 import cafue.sisfu.entity.municion.Municion_Sistemas;
-import cafue.sisfu.repository.mantenimiento.MantenimientoRepository;
 import cafue.sisfu.repository.municion.MunicionSistemaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

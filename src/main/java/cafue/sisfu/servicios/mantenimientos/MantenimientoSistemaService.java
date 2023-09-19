@@ -1,11 +1,7 @@
 package cafue.sisfu.servicios.mantenimientos;
 
-import cafue.sisfu.entity.mantenimientos.Mantenimiento;
-import cafue.sisfu.entity.personal.Artilleros;
-import cafue.sisfu.entity.sistemas.Sistema;
-import cafue.sisfu.repository.mantenimiento.MantenimientoRepository;
-import cafue.sisfu.repository.personal.MantenimientosRepository;
-import cafue.sisfu.repository.sistemas.SistemaRepository;
+import cafue.sisfu.entity.mantenimientoSistema.MantenimientoSistema;
+import cafue.sisfu.repository.mantenimientoSistema.MantenimientoSistemaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -13,14 +9,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MantenimientoService {
-    private final MantenimientoRepository mantenimientoRepository;
+public class MantenimientoSistemaService {
+    private final MantenimientoSistemaRepository mantenimientoRepository;
 
-    public MantenimientoService(MantenimientoRepository mantenimientoRepository) {
+    public MantenimientoSistemaService(MantenimientoSistemaRepository mantenimientoRepository) {
         this.mantenimientoRepository = mantenimientoRepository;
     }
 
-    public ResponseEntity<String> guardarMantenimiento(Mantenimiento mantenimiento) {
+    public ResponseEntity<String> guardarMantenimiento(MantenimientoSistema mantenimiento) {
         if (mantenimientoRepository.existsById(mantenimiento.getIdMantenimiento())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR");
 
@@ -31,11 +27,11 @@ public class MantenimientoService {
         }
     }
 
-    public Mantenimiento obtenerMantenimientoPorId(Long id) {
+    public MantenimientoSistema obtenerMantenimientoPorId(Long id) {
         return mantenimientoRepository.findById(id).orElse(null);
     }
 
-    public List<Mantenimiento> findAll() {
+    public List<MantenimientoSistema> findAll() {
         return mantenimientoRepository.findAll();
     }
 }
